@@ -2,6 +2,9 @@ package br.com.projeto.ecommerce.dto;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
+
+import br.com.projeto.ecommerce.entity.OrderedEntity;
 
 public class ProductDto {
 
@@ -20,6 +23,8 @@ public class ProductDto {
     private String desc;
 
     private LocalDateTime insertProductDate;
+    
+    private List<OrderedEntity> itens;
 
 	public Integer getId() {
 		return id;
@@ -84,7 +89,13 @@ public class ProductDto {
 	public void setInsertProductDate(LocalDateTime insertProductDate) {
 		this.insertProductDate = insertProductDate;
 	}
-    
-    
+
+	public List<OrderedEntity> getItens() {
+		return itens;
+	}
+
+	public void setItens(List<OrderedEntity> itens) {
+		this.itens = itens;
+	}
 
 }

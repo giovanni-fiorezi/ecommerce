@@ -14,6 +14,7 @@ public class ProductDtoConverter {
         productDto.setDesc(productEntity.getDesc());
         productDto.setUnitCost(productEntity.getUnitCost());
         productDto.setUnitPrice(productEntity.getUnitPrice());
+        productDto.setItens(productEntity.getItens());
         return productDto;
     }
 }

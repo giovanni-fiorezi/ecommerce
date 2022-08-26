@@ -8,5 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface OrderedRepository extends JpaRepository<OrderedEntity, Integer> {
+	
     Optional<OrderedEntity> findByOrderedNumber(Integer orderedNumber);
 }

@@ -1,39 +1,46 @@
 package br.com.projeto.ecommerce.entity;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Objects;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "ordered_item")
 public class OrderedItem {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 
     private Integer quantityProducts;
 
-    private BigDecimal valueItens;
+    private BigDecimal valueItem;
 
-    @ManyToOne
-    private List<ProductEntity> product;
-
-    @ManyToOne
+    /* um item so pode estar relacionado a um produto */
+    @OneToOne
+    private ProductEntity product;
+	
+    /* um item so pode estar relacionado a um pedido */
+    @OneToOne
     private OrderedEntity ordered;
+    
+	public OrderedItem() {
+	}
 
-	public OrderedItem(Integer id, Integer quantityProducts, BigDecimal valueItens, List<ProductEntity> product,
+	public OrderedItem(Integer id, Integer quantityProducts, BigDecimal valueItem, ProductEntity product,
 			OrderedEntity ordered) {
 		super();
 		this.id = id;
 		this.quantityProducts = quantityProducts;
-		this.valueItens = valueItens;
+		this.valueItem = valueItem;
 		this.product = product;
 		this.ordered = ordered;
-	}
-
-	public OrderedItem() {
 	}
 
 	public Integer getId() {
@@ -52,19 +59,19 @@ public class OrderedItem {
 		this.quantityProducts = quantityProducts;
 	}
 
-	public BigDecimal getValueItens() {
-		return valueItens;
+	public BigDecimal getValueItem() {
+		return valueItem;
 	}
 
-	public void setValueItens(BigDecimal valueItens) {
-		this.valueItens = valueItens;
+	public void setValueItem(BigDecimal valueItem) {
+		this.valueItem = valueItem;
 	}
 
-	public List<ProductEntity> getProduct() {
+	public ProductEntity getProduct() {
 		return product;
 	}
 
-	public void setProduct(List<ProductEntity> product) {
+	public void setProduct(ProductEntity product) {
 		this.product = product;
 	}
 
@@ -78,7 +85,7 @@ public class OrderedItem {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, ordered, product, quantityProducts, valueItens);
+		return Objects.hash(id, ordered, product, quantityProducts, valueItem);
 	}
 
 	@Override
@@ -92,13 +99,13 @@ public class OrderedItem {
 		OrderedItem other = (OrderedItem) obj;
 		return Objects.equals(id, other.id) && Objects.equals(ordered, other.ordered)
 				&& Objects.equals(product, other.product) && Objects.equals(quantityProducts, other.quantityProducts)
-				&& Objects.equals(valueItens, other.valueItens);
+				&& Objects.equals(valueItem, other.valueItem);
 	}
 
 	@Override
 	public String toString() {
-		return "OrderedItem [id=" + id + ", quantityProducts=" + quantityProducts + ", valueItens=" + valueItens
+		return "OrderedItem [id=" + id + ", quantityProducts=" + quantityProducts + ", valueItem=" + valueItem
 				+ ", product=" + product + ", ordered=" + ordered + "]";
 	}
- 
+    
 }

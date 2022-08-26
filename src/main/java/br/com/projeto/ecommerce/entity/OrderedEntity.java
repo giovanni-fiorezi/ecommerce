@@ -3,35 +3,42 @@ package br.com.projeto.ecommerce.entity;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "ordered")
 public class OrderedEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer orderedNumber;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer orderedNumber;
 
-    private BigDecimal valueOrdered;
+	private BigDecimal valueOrdered;
 
-    private LocalDateTime dateOrdered;
-    
-    private List<OrderedItem> itens;
-    
+	private LocalDateTime dateOrdered;
+
+	/* um pedido pode estar relacionado a varios itens */
+	@OneToMany
+	private List<OrderedItem> itens;
+
 	public OrderedEntity() {
+
 	}
 
-	public OrderedEntity(Integer orderedNumber, BigDecimal valueOrdered, LocalDateTime dateOrdered) {
+	public OrderedEntity(Integer orderedNumber, BigDecimal valueOrdered, LocalDateTime dateOrdered,
+			List<OrderedItem> itens) {
 		super();
 		this.orderedNumber = orderedNumber;
 		this.valueOrdered = valueOrdered;
 		this.dateOrdered = dateOrdered;
+		this.itens = itens;
 	}
 
 	public Integer getOrderedNumber() {
@@ -66,7 +73,29 @@ public class OrderedEntity {
 		this.itens = itens;
 	}
 
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(dateOrdered, itens, orderedNumber, valueOrdered);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		OrderedEntity other = (OrderedEntity) obj;
+		return Objects.equals(dateOrdered, other.dateOrdered) && Objects.equals(itens, other.itens)
+				&& Objects.equals(orderedNumber, other.orderedNumber)
+				&& Objects.equals(valueOrdered, other.valueOrdered);
+	}
+
+	@Override
+	public String toString() {
+		return "OrderedEntity [orderedNumber=" + orderedNumber + ", valueOrdered=" + valueOrdered + ", dateOrdered="
+				+ dateOrdered + ", itens=" + itens + "]";
+	}
 
 }
-

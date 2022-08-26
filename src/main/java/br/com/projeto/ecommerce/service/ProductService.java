@@ -1,5 +1,12 @@
 package br.com.projeto.ecommerce.service;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import br.com.projeto.ecommerce.converter.ProductDtoConverter;
 import br.com.projeto.ecommerce.converter.ProductEntityConverter;
 import br.com.projeto.ecommerce.dto.ProductDto;
@@ -8,13 +15,6 @@ import br.com.projeto.ecommerce.exception.ProductException;
 import br.com.projeto.ecommerce.exception.ProductInsertException;
 import br.com.projeto.ecommerce.exception.ProductNotRegisteredException;
 import br.com.projeto.ecommerce.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -29,6 +29,14 @@ public class ProductService {
         }
         return ProductDtoConverter.fromEntity(entity.get());
     }
+    
+    public ProductDto findByName(String name) {
+    	Optional<ProductEntity> optional = productRepository.findByName(name);
+    	if(optional.isEmpty()) {
+    		throw new ProductException("produto nao encontrado");
+    	}
+    	return ProductDtoConverter.fromEntity(optional.get());
+    }
 
     public List<ProductDto> findAll() {
         try {
@@ -40,7 +48,6 @@ public class ProductService {
         }
     }
 
-    @Transactional
     public ProductDto insert(ProductDto product){
         if(productRepository.existsByName(product.getName())){
             throw new ProductInsertException("Produto já cadastrado");
@@ -50,7 +57,6 @@ public class ProductService {
         return ProductDtoConverter.fromEntity(entity);
     }
 
-    @Transactional
     public ProductDto update(ProductDto productDto, Integer id){
         Optional<ProductEntity> entityOptional = this.productRepository.findById(id);
         if(entityOptional.isEmpty()){
@@ -61,7 +67,6 @@ public class ProductService {
         return ProductDtoConverter.fromEntity(entity);
     }
 
-    @Transactional
     public void delete(Integer id){
         if(!productRepository.existsById(id)){
             throw new ProductException("Produto não encontrado");

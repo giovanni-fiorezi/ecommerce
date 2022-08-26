@@ -1,8 +1,12 @@
 package br.com.projeto.ecommerce.service;
 
-import br.com.projeto.ecommerce.entity.ProductEntity;
-import br.com.projeto.ecommerce.exception.ProductException;
-import br.com.projeto.ecommerce.repository.ProductRepository;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import org.apache.commons.collections4.IteratorUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -13,14 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import br.com.projeto.ecommerce.entity.ProductEntity;
+import br.com.projeto.ecommerce.exception.ProductException;
+import br.com.projeto.ecommerce.repository.ProductRepository;
 
 @Service
 public class UploadFileProducts {
@@ -37,8 +36,6 @@ public class UploadFileProducts {
 
             //Setando a aba
             Sheet sheet = wb.getSheetAt(0);
-            iterandoPlanilha(sheet);
-
             iterandoPlanilha(sheet);
 
         } catch (ProductException e) {
