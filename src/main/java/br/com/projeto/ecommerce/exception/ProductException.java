@@ -4,7 +4,9 @@ import org.hibernate.service.spi.ServiceException;
 
 public class ProductException extends ServiceException {
 
-    public ProductException(String message, Throwable root) {
+    private static final long serialVersionUID = 1L;
+
+	public ProductException(String message, Throwable root) {
         super(message, root);
     }
 

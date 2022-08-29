@@ -4,7 +4,9 @@ import org.hibernate.service.spi.ServiceException;
 
 public class ProductNotRegisteredException extends ServiceException {
 
-    public ProductNotRegisteredException(String message) {
+    private static final long serialVersionUID = 1L;
+
+	public ProductNotRegisteredException(String message) {
         super(message);
     }
 

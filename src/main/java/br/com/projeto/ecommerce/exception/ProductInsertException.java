@@ -2,11 +2,11 @@ package br.com.projeto.ecommerce.exception;
 
 import org.hibernate.service.spi.ServiceException;
 
-import java.security.Provider;
-
 public class ProductInsertException extends ServiceException {
 
-    public ProductInsertException(String message, Throwable root) {
+    private static final long serialVersionUID = 1L;
+
+	public ProductInsertException(String message, Throwable root) {
         super(message, root);
     }
 

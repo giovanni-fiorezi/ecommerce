@@ -31,11 +31,11 @@ public class ProductService {
     }
     
     public ProductDto findByName(String name) {
-    	Optional<ProductEntity> optional = productRepository.findByName(name);
-    	if(optional.isEmpty()) {
+    	ProductEntity nameEntity = productRepository.getByName(name);
+    	if(nameEntity == null) {
     		throw new ProductException("produto nao encontrado");
     	}
-    	return ProductDtoConverter.fromEntity(optional.get());
+    	return ProductDtoConverter.fromEntity(nameEntity);
     }
 
     public List<ProductDto> findAll() {

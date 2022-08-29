@@ -3,6 +3,7 @@ package br.com.projeto.ecommerce.service;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -64,6 +65,7 @@ public class UploadFileProducts {
                     product.setProductType(cells.get(2).getStringCellValue());
                     product.setUnitCost(new BigDecimal(cells.get(4).getStringCellValue()));
                     product.setUnitPrice(new BigDecimal(cells.get(3).getStringCellValue()));
+                    product.setInsertProductDate(LocalDateTime.parse(cells.get(5).getStringCellValue()));
                     product.setDesc(cells.get(6).getStringCellValue());
 
                     this.productRepository.save(product);
@@ -78,6 +80,7 @@ public class UploadFileProducts {
                     product2.setProductType(cells.get(2).getStringCellValue());
                     product2.setUnitCost(new BigDecimal(cells.get(4).getStringCellValue()));
                     product2.setUnitPrice(new BigDecimal(cells.get(3).getStringCellValue()));
+                    product2.setInsertProductDate(LocalDateTime.parse(cells.get(5).getStringCellValue()));
                     product2.setDesc(cells.get(6).getStringCellValue());
 
                     this.productRepository.save(product2);

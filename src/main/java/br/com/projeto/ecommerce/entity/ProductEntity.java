@@ -31,6 +31,7 @@ public class ProductEntity {
 
     private BigDecimal unitCost;
 
+    @Column(name = "description_product")
     private String desc;
     
     @Column(name = "insert_product_date")
@@ -40,11 +41,13 @@ public class ProductEntity {
     @OneToMany(mappedBy = "itens")
     private List<OrderedEntity> itens;
     
+    private Integer quantity;
+    
 	public ProductEntity() {
 	}
 
 	public ProductEntity(Integer id, String name, String brand, String productType, BigDecimal unitPrice,
-			BigDecimal unitCost, String desc, LocalDateTime insertProductDate, List<OrderedEntity> itens) {
+			BigDecimal unitCost, String desc, LocalDateTime insertProductDate, List<OrderedEntity> itens, Integer quantity) {
 		this.id = id;
 		this.name = name;
 		this.brand = brand;
@@ -54,6 +57,7 @@ public class ProductEntity {
 		this.desc = desc;
 		this.insertProductDate = insertProductDate;
 		this.itens = itens;
+		this.quantity = quantity;
 	}
 
 	public Integer getId() {
@@ -127,10 +131,19 @@ public class ProductEntity {
 	public void setItens(List<OrderedEntity> itens) {
 		this.itens = itens;
 	}
+	
+	public Integer getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(brand, desc, id, insertProductDate, itens, name, productType, unitCost, unitPrice);
+		return Objects.hash(brand, desc, id, insertProductDate, itens, name, productType, quantity, unitCost,
+				unitPrice);
 	}
 
 	@Override
@@ -145,15 +158,17 @@ public class ProductEntity {
 		return Objects.equals(brand, other.brand) && Objects.equals(desc, other.desc) && Objects.equals(id, other.id)
 				&& Objects.equals(insertProductDate, other.insertProductDate) && Objects.equals(itens, other.itens)
 				&& Objects.equals(name, other.name) && Objects.equals(productType, other.productType)
-				&& Objects.equals(unitCost, other.unitCost) && Objects.equals(unitPrice, other.unitPrice);
+				&& Objects.equals(quantity, other.quantity) && Objects.equals(unitCost, other.unitCost)
+				&& Objects.equals(unitPrice, other.unitPrice);
 	}
 
 	@Override
 	public String toString() {
 		return "ProductEntity [id=" + id + ", name=" + name + ", brand=" + brand + ", productType=" + productType
 				+ ", unitPrice=" + unitPrice + ", unitCost=" + unitCost + ", desc=" + desc + ", insertProductDate="
-				+ insertProductDate + ", itens=" + itens + "]";
+				+ insertProductDate + ", itens=" + itens + ", quantity=" + quantity + "]";
 	}
+	
     
     
 }
