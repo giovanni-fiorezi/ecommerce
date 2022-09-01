@@ -6,30 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/controller/ProductController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/converter/ProductDtoConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/converter/ProductDtoConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/converter/ProductEntityConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/converter/ProductEntityConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/dto/OrderedDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/dto/OrderedDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/dto/ProductDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/dto/ProductDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/ProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/ProductEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/.reloadtrigger" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/e-commerce/br.com.projeto/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/e-commerce/br.com.projeto/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/controller/ProductController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/converter/ProductDtoConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/converter/ProductDtoConverter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/converter/ProductEntityConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/converter/ProductEntityConverter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/dto/OrderedDto$OrderedDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/dto/OrderedDto$OrderedDtoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/dto/OrderedDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/dto/OrderedDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/dto/ProductDto$ProductDtoBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/dto/ProductDto$ProductDtoBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/dto/ProductDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/dto/ProductDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/ProductEntity$ProductEntityBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/ProductEntity$ProductEntityBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/ProductEntity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/ProductEntity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/repository/OrderedRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/repository/OrderedRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/repository/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/repository/ProductRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/service/ProductService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/service/ProductService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/br.com.projeto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/br.com.projeto.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/controller/OrderedController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/controller/OrderedController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/OrderedService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/OrderedService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,16 +24,24 @@ public class OrderedService {
     @Autowired
     private OrderedRepository orderedRepository;
 
+    private Logger log = LoggerFactory.getLogger(OrderedService.class);
+
     public OrderedDto findByOrderedNumber(Integer orderedNumber){
-        Optional<OrderedEntity> entityOptional = this.orderedRepository.findByOrderedNumber(orderedNumber);
-        if(entityOptional.isEmpty()){
-            throw new ProductException("Numero do pedido não foi encontrado");
+        log.info("Buscando pedido pelo numero {}", orderedNumber);
+        try {
+            Optional<OrderedEntity> entityOptional = this.orderedRepository.findByOrderedNumber(orderedNumber);
+            if (entityOptional.isEmpty()) {
+                throw new ProductException("Numero do pedido não foi encontrado");
+            }
+            return OrderedDtoConverter.fromEntity(entityOptional.get());
+        }catch (Exception e){
+            throw new EcommerceException("Ocorreu um erro");
         }
-        return OrderedDtoConverter.fromEntity(entityOptional.get());
     }
 
     /*filtrar pedidos por data*/
     public List<OrderedDto> findByDate(LocalDateTime dateOrdered){
+        log.info("Filtrando pedidos pela data {}", dateOrdered);
         try {
             List<OrderedEntity> orderedList = this.orderedRepository.findByDateOrdered(dateOrdered);
             return orderedList
@@ -44,30 +54,40 @@ public class OrderedService {
     }
 
     public OrderedDto insert(OrderedDto orderedDto){
-        if(this.orderedRepository.existsById(orderedDto.getOrderedNumber())){
-            throw new EcommerceException("Pedido ja cadastrado");
+        log.info("Inserindo um novo pedido");
+        try {
+            if (this.orderedRepository.existsById(orderedDto.getOrderedNumber())) {
+                throw new EcommerceException("Pedido ja cadastrado");
+            }
+            OrderedEntity orderedEntity = OrderedEntityConverter.fromDto(orderedDto);
+            return OrderedDtoConverter.fromEntity(this.orderedRepository.save(orderedEntity));
+        }catch (Exception e){
+            throw new EcommerceException("Ocorreu um erro");
         }
-        OrderedEntity orderedEntity = OrderedEntityConverter.fromDto(orderedDto);
-        return OrderedDtoConverter.fromEntity(this.orderedRepository.save(orderedEntity));
     }
 
-    public OrderedDto update(OrderedDto orderedDto, Integer orderedNumber){
+    public void update(OrderedDto orderedDto, Integer orderedNumber){
+        log.info("Atualizando um pedido");
         try{
-            Optional<OrderedEntity> optional = this.orderedRepository.findByOrderedNumber(orderedNumber);
-            if(optional.isEmpty()){
+            this.orderedRepository.findByOrderedNumber(orderedNumber).ifPresentOrElse((orderedEntity) -> {
+                orderedRepository.save(OrderedEntityConverter.fromDto(orderedDto));
+            }, () -> {
                 throw new EcommerceException("Pedido nao encontrado");
-            }
-            OrderedEntity entity = OrderedEntityConverter.fromDto(orderedDto);
-            return OrderedDtoConverter.fromEntity(this.orderedRepository.save(entity));
+            });
         } catch(Exception e){
-            throw new EcommerceException("Pedido nao encontrado");
+            throw new EcommerceException("Ocorreu um erro");
         }
     }
 
     public void deleteOrdered(Integer orderedNumber) {
-    	if(!orderedRepository.existsById(orderedNumber)) {
-    		throw new EcommerceException("Pedido nao encontrado");
-    	}
-    	orderedRepository.deleteById(orderedNumber);
+        log.info("Deletando um pedido");
+        try {
+            if (!orderedRepository.existsById(orderedNumber)) {
+                throw new EcommerceException("Pedido nao encontrado");
+            }
+            orderedRepository.deleteById(orderedNumber);
+        }catch (Exception e){
+            throw new EcommerceException("Ocorreu um erro");
+        }
     }
 }
