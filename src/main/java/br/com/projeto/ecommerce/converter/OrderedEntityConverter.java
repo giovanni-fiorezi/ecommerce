@@ -6,11 +6,9 @@ import br.com.projeto.ecommerce.entity.OrderedEntity;
 public class OrderedEntityConverter {
 
     public static OrderedEntity fromDto(OrderedDto orderedDto){
-        OrderedEntity entity = new OrderedEntity();
-        entity.setDateOrdered(orderedDto.getDateOrdered());
-        entity.setOrderedNumber(orderedDto.getOrderedNumber());
-        entity.setValueOrdered(orderedDto.getValueOrdered());
-        entity.setItens(orderedDto.getItens());
-        return entity;
+        return OrderedEntity.builder()
+                .orderedNumber(orderedDto.getOrderedNumber())
+                .valueOrdered(orderedDto.getValueOrdered())
+                .build();
     }
 }

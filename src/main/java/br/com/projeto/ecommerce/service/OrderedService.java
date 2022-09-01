@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import br.com.projeto.ecommerce.converter.OrderedEntityConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.projeto.ecommerce.converter.OrderedDtoConverter;
+import br.com.projeto.ecommerce.converter.OrderedEntityConverter;
 import br.com.projeto.ecommerce.dto.OrderedDto;
 import br.com.projeto.ecommerce.entity.OrderedEntity;
 import br.com.projeto.ecommerce.exception.EcommerceException;

@@ -6,15 +6,15 @@ import br.com.projeto.ecommerce.entity.ProductEntity;
 public class ProductDtoConverter {
 
     public static ProductDto fromEntity(ProductEntity productEntity){
-        ProductDto productDto = new ProductDto();
-        productDto.setName(productEntity.getName());
-        productDto.setProductType(productEntity.getProductType());
-        productDto.setInsertProductDate(productEntity.getInsertProductDate());
-        productDto.setBrand(productEntity.getBrand());
-        productDto.setDesc(productEntity.getDesc());
-        productDto.setUnitCost(productEntity.getUnitCost());
-        productDto.setUnitPrice(productEntity.getUnitPrice());
-        productDto.setItens(productEntity.getItens());
-        return productDto;
+        return ProductDto.builder()
+                .name(productEntity.getName())
+                .brand(productEntity.getBrand())
+                .productType(productEntity.getProductType())
+                .desc(productEntity.getDesc())
+                .unitPrice(productEntity.getUnitPrice())
+                .unitCost(productEntity.getUnitCost())
+                .quantity(productEntity.getQuantity())
+                .insertProductDate(productEntity.getInsertProductDate())
+        .build();
     }
 }

@@ -5,47 +5,25 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import br.com.projeto.ecommerce.entity.OrderedItem;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.OneToMany;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class OrderedDto {
 
-	private Integer orderedNumber;
+    private Integer orderedNumber;
 
-	private BigDecimal valueOrdered;
+    private BigDecimal valueOrdered;
 
-	private LocalDateTime dateOrdered;
+//    private LocalDateTime dateOrdered = LocalDateTime.now();
 
-	private List<OrderedItem> itens;
-
-	public Integer getOrderedNumber() {
-		return orderedNumber;
-	}
-
-	public void setOrderedNumber(Integer orderedNumber) {
-		this.orderedNumber = orderedNumber;
-	}
-
-	public BigDecimal getValueOrdered() {
-		return valueOrdered;
-	}
-
-	public void setValueOrdered(BigDecimal valueOrdered) {
-		this.valueOrdered = valueOrdered;
-	}
-
-	public LocalDateTime getDateOrdered() {
-		return dateOrdered;
-	}
-
-	public void setDateOrdered(LocalDateTime dateOrdered) {
-		this.dateOrdered = dateOrdered;
-	}
-
-	public List<OrderedItem> getItens() {
-		return itens;
-	}
-
-	public void setItens(List<OrderedItem> itens) {
-		this.itens = itens;
-	}
+    private List<OrderedItemDto> itens;
 
 }

@@ -19,7 +19,7 @@ public class SwaggerConfigurations {
 	@Bean
 	public Docket forumApi() {
 		return new Docket(DocumentationType.SWAGGER_2).select()
-				.apis(RequestHandlerSelectors.basePackage("br.com.projeto.ecommerce.controller"))
+				.apis(RequestHandlerSelectors.any())
 				.paths(PathSelectors.any()).build();
 	}
 	

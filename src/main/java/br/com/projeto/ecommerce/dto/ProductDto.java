@@ -5,10 +5,21 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import br.com.projeto.ecommerce.entity.OrderedEntity;
+import br.com.projeto.ecommerce.entity.OrderedItem;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.apache.tomcat.jni.Local;
 
+import javax.persistence.Column;
+import javax.persistence.OneToMany;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ProductDto {
-
-    private Integer id;
 
     private String name;
 
@@ -22,80 +33,7 @@ public class ProductDto {
 
     private String desc;
 
-    private LocalDateTime insertProductDate;
-    
-    private List<OrderedEntity> itens;
+    private Integer quantity;
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getBrand() {
-		return brand;
-	}
-
-	public void setBrand(String brand) {
-		this.brand = brand;
-	}
-
-	public String getProductType() {
-		return productType;
-	}
-
-	public void setProductType(String productType) {
-		this.productType = productType;
-	}
-
-	public BigDecimal getUnitPrice() {
-		return unitPrice;
-	}
-
-	public void setUnitPrice(BigDecimal unitPrice) {
-		this.unitPrice = unitPrice;
-	}
-
-	public BigDecimal getUnitCost() {
-		return unitCost;
-	}
-
-	public void setUnitCost(BigDecimal unitCost) {
-		this.unitCost = unitCost;
-	}
-
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-
-	public LocalDateTime getInsertProductDate() {
-		return insertProductDate;
-	}
-
-	public void setInsertProductDate(LocalDateTime insertProductDate) {
-		this.insertProductDate = insertProductDate;
-	}
-
-	public List<OrderedEntity> getItens() {
-		return itens;
-	}
-
-	public void setItens(List<OrderedEntity> itens) {
-		this.itens = itens;
-	}
-
+    private LocalDateTime insertProductDate = LocalDateTime.now();
 }
