@@ -2,6 +2,7 @@ package br.com.projeto.ecommerce.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
 import br.com.projeto.ecommerce.exception.EcommerceException;
@@ -27,22 +28,30 @@ public class ProductService {
 
     private Logger log = LoggerFactory.getLogger(ProductService.class);
 
-    public ProductDto findProductById(Integer id){
+    public ProductDto findProductById(Integer id) {
         log.info("Buscando produto pelo id {}", id);
-        Optional<ProductEntity> entity = productRepository.findById(id);
-        if (entity.isEmpty()) {
-            throw new ProductNotRegisteredException("Produto nao foi cadastrado");
+        try {
+            Optional<ProductEntity> entity = productRepository.findById(id);
+            if (entity.isEmpty()) {
+                throw new ProductNotRegisteredException("Produto nao foi cadastrado");
+            }
+            return ProductDtoConverter.fromEntity(entity.get());
+        } catch (Exception e) {
+            throw new ProductException("Ocorreu um erro");
         }
-        return ProductDtoConverter.fromEntity(entity.get());
     }
 
     public ProductDto findByName(String name) {
         log.info("Buscando um produto pelo nome {}", name);
-    	ProductEntity nameEntity = productRepository.getByName(name);
-    	if(nameEntity == null) {
-    		throw new ProductException("produto nao encontrado");
-    	}
-    	return ProductDtoConverter.fromEntity(nameEntity);
+        try {
+            ProductEntity nameEntity = productRepository.getByName(name);
+            if (nameEntity == null) {
+                throw new ProductException("produto nao encontrado");
+            }
+            return ProductDtoConverter.fromEntity(nameEntity);
+        } catch (Exception e) {
+            throw new ProductException("Ocorreu um erro");
+        }
     }
 
     public List<ProductDto> findAll() {
@@ -51,41 +60,48 @@ public class ProductService {
             List<ProductEntity> listAll = productRepository.findAll();
             return listAll.stream().map(product -> ProductDtoConverter.fromEntity(product))
                     .collect(Collectors.toList());
-        }catch(ProductException e){
+        } catch (ProductException e) {
             throw new ProductException("Ocorreu um erro");
         }
     }
 
-    public ProductDto insert(ProductDto product){
+    public ProductDto insert(ProductDto product) {
         log.info("Cadastrando um novo produto");
-        if(productRepository.existsByName(product.getName())){
-            throw new ProductInsertException("Produto já cadastrado");
+        try {
+            if (productRepository.existsByName(product.getName())) {
+                throw new ProductInsertException("Produto já cadastrado");
+            }
+            ProductEntity productEntity = ProductEntityConverter.fromDto(product);
+            ProductEntity entity = productRepository.save(productEntity);
+            return ProductDtoConverter.fromEntity(entity);
+        } catch (Exception e) {
+            throw new ProductException("Erro inesperado");
         }
-        ProductEntity productEntity = ProductEntityConverter.fromDto(product);
-        ProductEntity entity = productRepository.save(productEntity);
-        return ProductDtoConverter.fromEntity(entity);
     }
 
-    public ProductDto update(ProductDto productDto, Integer id){
+    public void update(ProductDto productDto) {
         log.info("Atualizando um produto");
         try {
-            Optional<ProductEntity> entityOptional = this.productRepository.findById(id);
-            if (entityOptional.isEmpty()) {
+            this.productRepository.findById(productDto.getId()).ifPresentOrElse((product) -> {
+                productRepository.save(ProductEntityConverter.fromDto(productDto));
+            }, () -> {
                 throw new ProductException("Produto não foi encontrado");
-            } else {
-                return ProductDtoConverter.fromEntity(productRepository.save(ProductEntityConverter.fromDto(productDto)));
-            }
-        }catch (Exception e){
-            throw  new EcommerceException("Erro ao atualizar o produto");
+            });
+        } catch (Exception e) {
+            throw new EcommerceException("Erro ao atualizar o produto");
         }
     }
 
-    public void delete(Integer id){
+    public void delete(Integer id) {
         log.info("Deletando um produto");
-        if(!productRepository.existsById(id)){
-            throw new ProductException("Produto não encontrado");
+        try {
+            if (!productRepository.existsById(id)) {
+                throw new ProductException("Produto não encontrado");
+            }
+            this.productRepository.deleteById(id);
+        } catch (Exception e) {
+            throw new ProductException("Erro inesperado");
         }
-        this.productRepository.deleteById(id);
-    }
 
+    }
 }

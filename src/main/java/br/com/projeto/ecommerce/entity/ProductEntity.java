@@ -1,9 +1,7 @@
 package br.com.projeto.ecommerce.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 import org.apache.tomcat.jni.Local;
 
 import java.math.BigDecimal;
@@ -18,6 +16,8 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductEntity {
 
     @Id

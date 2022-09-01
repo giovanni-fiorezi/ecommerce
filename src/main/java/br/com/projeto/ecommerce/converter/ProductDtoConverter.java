@@ -7,6 +7,7 @@ public class ProductDtoConverter {
 
     public static ProductDto fromEntity(ProductEntity productEntity){
         return ProductDto.builder()
+                .id(productEntity.getId())
                 .name(productEntity.getName())
                 .brand(productEntity.getBrand())
                 .productType(productEntity.getProductType())

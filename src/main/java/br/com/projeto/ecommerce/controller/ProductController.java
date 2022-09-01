@@ -32,6 +32,11 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).body(productDto);
     }
 
+    @GetMapping("/find-by-name/{name}")
+    public ResponseEntity<ProductDto> findProductByName(@PathVariable(name = "name") String name){
+        return ResponseEntity.status(HttpStatus.OK).body(this.productService.findByName(name));
+    }
+
     @GetMapping
     public ResponseEntity<List<ProductDto>> findAll(){
         return ResponseEntity.status(HttpStatus.OK).body(productService.findAll());
@@ -43,10 +48,10 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.CREATED).body(product);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<ProductDto> update(@RequestBody ProductDto productDto, @PathVariable Integer id){
-        ProductDto product = productService.update(productDto, id);
-        return ResponseEntity.status(HttpStatus.OK).body(product);
+    @PutMapping("/update")
+    public ResponseEntity<Void> update(@RequestBody ProductDto productDto){
+        this.productService.update(productDto);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @DeleteMapping("/{id}")

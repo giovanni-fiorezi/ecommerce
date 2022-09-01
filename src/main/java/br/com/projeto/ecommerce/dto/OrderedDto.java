@@ -5,10 +5,8 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import br.com.projeto.ecommerce.entity.OrderedItem;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
 import javax.persistence.OneToMany;
 
@@ -16,6 +14,8 @@ import javax.persistence.OneToMany;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class OrderedDto {
 
     private Integer orderedNumber;
