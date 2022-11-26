@@ -1,10 +1,13 @@
 package br.com.projeto.ecommerce.service;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import br.com.projeto.ecommerce.dto.ProductDto;
+import br.com.projeto.ecommerce.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +27,21 @@ public class OrderedService {
     @Autowired
     private OrderedRepository orderedRepository;
 
+    @Autowired
+    private ProductRepository productRepository;
+
     private Logger log = LoggerFactory.getLogger(OrderedService.class);
+
+    public List<OrderedDto> listAll(){
+        log.info("Buscando todos os pedidos");
+        try {
+            List<OrderedEntity> listAll= this.orderedRepository.findAll();
+            return listAll.stream().map(ordered -> OrderedDtoConverter.fromEntity(ordered))
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new EcommerceException("Ocorreu um erro ao buscar todos os pedidos");
+        }
+    }
 
     public OrderedDto findByOrderedNumber(Integer orderedNumber){
         log.info("Buscando pedido pelo numero {}", orderedNumber);
@@ -58,6 +75,11 @@ public class OrderedService {
         try {
             if (this.orderedRepository.existsById(orderedDto.getOrderedNumber())) {
                 throw new EcommerceException("Pedido ja cadastrado");
+            }
+            ProductDto productDto = new ProductDto();
+            if(productDto.getQuantity() >= 3){
+                productDto.getUnitPrice().multiply(new BigDecimal(0.15));
+                log.info("Compra acima de 3 itens, ganha 15% de desconto");
             }
             OrderedEntity orderedEntity = OrderedEntityConverter.fromDto(orderedDto);
             return OrderedDtoConverter.fromEntity(this.orderedRepository.save(orderedEntity));

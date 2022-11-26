@@ -1,6 +1,5 @@
 package br.com.projeto.ecommerce.controller;
 
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +18,12 @@ public class OrderedController {
     @Autowired
     private OrderedService orderedService;
 
+    @GetMapping("/listAll")
+    public ResponseEntity<List<OrderedDto>> listAll(){
+        this.orderedService.listAll();
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
     @GetMapping("/{numberOrdered}")
     public ResponseEntity<OrderedDto> findByNumberOrdered(@PathVariable(value = "/numberOrdered") Integer numberOrdered){
         return ResponseEntity.status(HttpStatus.OK).body(this.orderedService.findByOrderedNumber(numberOrdered));
@@ -29,10 +34,16 @@ public class OrderedController {
         return ResponseEntity.status(HttpStatus.OK).body(this.orderedService.findByDate(date));
     }
 
-    @PostMapping
+    @PostMapping("/insert")
     public ResponseEntity<OrderedDto> insertOrdered(@RequestBody OrderedDto orderedDto){
         OrderedDto ordered = this.orderedService.insert(orderedDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(ordered);
+    }
+
+    @PutMapping("/update/{orderedNumber}")
+    public ResponseEntity<String> updateOrdered(@RequestBody OrderedDto orderedDto, Integer orderedNumber) {
+        this.orderedService.update(orderedDto, orderedNumber);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @DeleteMapping("/{orderedNumber}")
