@@ -11,38 +11,19 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "product")
+@Table (name = "produto")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String name;
-
-    private String brand;
-
-    private String productType;
-
-    private BigDecimal unitPrice;
-
-    private BigDecimal unitCost;
-
-    @Column(name = "description_product")
-    private String desc;
-    
-    private Integer quantity;
-
-    @OneToMany(mappedBy = "product")
-    private List<OrderedItem> itens;
-    
-    @Column(name = "insert_product_date")
-    private LocalDateTime insertProductDate = LocalDateTime.now();
+    private String descricao;
+    private BigDecimal preco;
 
 }

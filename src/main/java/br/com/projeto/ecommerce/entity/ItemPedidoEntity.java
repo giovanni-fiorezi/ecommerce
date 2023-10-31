@@ -6,28 +6,27 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ordered")
+@Table(name = "item_pedido")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderedEntity {
-
+public class ItemPedidoEntity {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer orderedNumber;
+	private Integer id;
 
-	private BigDecimal valueOrdered;
+	private Integer pedidoId;
 
-	private LocalDateTime dateOrdered = LocalDateTime.now();
+	private Integer produtoId;
 
-	@OneToMany(mappedBy = "ordered")
-	private List<OrderedItem> itens;
+	private BigDecimal precoProduto;
+
+	private Integer quantidade;
 
 }
