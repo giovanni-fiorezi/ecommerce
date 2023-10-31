@@ -37,6 +37,10 @@ public class PedidoEntity {
 	@JoinColumn(name = "cliente_id")
 	private ClienteEntity cliente;
 
+	@OneToOne
+	@JoinColumn(name = "nota_fiscal_id")
+	private NotaFiscalEntity notaFiscal;
+
 	@Embedded
 	private EnderecoEntregaPedido enderecoEntrega;
 

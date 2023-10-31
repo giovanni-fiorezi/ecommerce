@@ -10,9 +10,6 @@
         <module name="br.com.projeto" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="br.com.projeto" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
