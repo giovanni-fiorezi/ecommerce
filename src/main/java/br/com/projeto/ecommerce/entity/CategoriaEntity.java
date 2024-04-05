@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -16,5 +17,14 @@ public class CategoriaEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-    private Integer categoriaPaiId;
+
+    @ManyToMany(mappedBy = "categorias")
+    private List<ProductEntity> produtos;
+
+    @ManyToOne
+    @JoinColumn(name = "categoria_pai_id")
+    private CategoriaEntity categoriaPai;
+
+    @OneToMany(mappedBy = "categoriaPai")
+    private List<CategoriaEntity> categorias;
 }

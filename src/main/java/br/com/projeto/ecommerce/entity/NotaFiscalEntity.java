@@ -23,4 +23,7 @@ public class NotaFiscalEntity {
     private String xml;
 
     private Date dataEmissao;
+
+    @OneToOne(mappedBy = "notaFiscal")
+    private PedidoEntity pedido;
 }

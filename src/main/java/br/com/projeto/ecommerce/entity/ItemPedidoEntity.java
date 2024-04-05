@@ -21,9 +21,13 @@ public class ItemPedidoEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
-	private Integer pedidoId;
+	@ManyToOne
+	@JoinColumn(name = "pedido_id")
+	private PedidoEntity pedido;
 
-	private Integer produtoId;
+	@ManyToOne
+	@JoinColumn(name = "produto_id")
+	private ProductEntity produto;
 
 	private BigDecimal precoProduto;
 

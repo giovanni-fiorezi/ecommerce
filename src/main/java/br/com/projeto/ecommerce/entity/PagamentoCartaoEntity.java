@@ -17,7 +17,9 @@ public class PagamentoCartaoEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Integer pedidoId;
+    @OneToOne
+    @JoinColumn(name = "pedido_id")
+    private PedidoEntity pedido;
 
     @Enumerated(EnumType.STRING)
     private StatusPagamentoEnum status;

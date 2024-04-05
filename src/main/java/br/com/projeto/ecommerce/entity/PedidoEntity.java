@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -26,22 +27,24 @@ public class PedidoEntity {
 
 	private LocalDateTime dataConclusao;
 
-	private Integer notaFiscalId;
-
 	private BigDecimal total;
 
 	@Enumerated(EnumType.STRING)
 	private StatusPedidoEnum status;
 
 	@ManyToOne
-	@JoinColumn(name = "cliente_id")
 	private ClienteEntity cliente;
 
 	@OneToOne
-	@JoinColumn(name = "nota_fiscal_id")
 	private NotaFiscalEntity notaFiscal;
 
 	@Embedded
 	private EnderecoEntregaPedido enderecoEntrega;
+
+	@OneToMany(mappedBy = "pedido")
+	private List<ItemPedidoEntity> itensPedido;
+
+	@OneToOne(mappedBy = "pedido")
+	private PagamentoCartaoEntity pagamento;
 
 }
