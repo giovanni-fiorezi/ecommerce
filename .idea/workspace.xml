@@ -4,22 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="Começando os serviços da entidade Produtos.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/CategoriaEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/enums/CategoriaEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/ClienteEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/ClienteEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/ItemPedidoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/ItemPedidoEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/PagamentoBoletoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/enums/FormaPagamentoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/PagamentoCartaoEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/PedidoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/PedidoEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/ProductEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/ProdutoEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/SexoClienteEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/enums/SexoClienteEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/StatusPagamentoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/enums/StatusPagamentoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/StatusPedidoEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/enums/StatusPedidoEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/resource/ProductResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/resource/ProdutoResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/resource/ProductResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/resource/ProductResource.class" afterDir="false" />
+    <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="Refatoração dos nomes de algumas classes, mudança no escopo de entidades para enums e criação de uma nova pasta de enums para segregar as implementações.">
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/CategoriaEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/ClienteEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/ItemPedidoEntity$ItemPedidoEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/ItemPedidoEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/PagamentoBoletoEntity$PagamentoBoletoEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/PagamentoBoletoEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/PagamentoCartaoEntity$PagamentoCartaoEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/PagamentoCartaoEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/PedidoEntity$PedidoEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/PedidoEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/ProductEntity$ProductEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/ProductEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/SexoClienteEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/StatusPagamentoEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/StatusPedidoEnum.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,6 +200,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="" />
+      <changelist id="" name="commits" comment="" />
       <created>1661968901131</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -214,7 +215,7 @@
       <workItem from="1702322428880" duration="10000" />
       <workItem from="1706533104373" duration="108000" />
       <workItem from="1712318984548" duration="1241000" />
-      <workItem from="1712409642892" duration="2420000" />
+      <workItem from="1712409642892" duration="3059000" />
     </task>
     <task id="LOCAL-00001" summary="Inserindo classes, atributos e fazendo os mapeamentos.">
       <option name="closed" value="true" />
@@ -232,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698778225278</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refatoração dos nomes de algumas classes, mudança no escopo de entidades para enums e criação de uma nova pasta de enums para segregar as implementações.">
+      <option name="closed" value="true" />
+      <created>1712412326025</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1712412326025</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,6 +260,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Inserindo classes, atributos e fazendo os mapeamentos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Inserindo classes, atributos e fazendo os mapeamentos." />
+    <MESSAGE value="Refatoração dos nomes de algumas classes, mudança no escopo de entidades para enums e criação de uma nova pasta de enums para segregar as implementações." />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
 </project>
