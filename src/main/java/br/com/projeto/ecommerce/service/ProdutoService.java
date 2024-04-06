@@ -2,58 +2,56 @@ package br.com.projeto.ecommerce.service;
 
 
 import br.com.projeto.ecommerce.entity.ProdutoEntity;
+import br.com.projeto.ecommerce.exceptions.ResourceNotFoundException;
+import br.com.projeto.ecommerce.repository.ProdutoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
 @Service
 public class ProdutoService {
 
-    private final AtomicLong counter = new AtomicLong();
     private Logger logger = Logger.getLogger(ProdutoService.class.getName());
 
-    public List<ProdutoEntity> findAll() {
-        logger.info("Buscando produtos.");
+    @Autowired
+    private ProdutoRepository repository;
 
-        List<ProdutoEntity> products = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            ProdutoEntity product = mockProduct(i);
-            products.add(product);
-        }
-        return products;
+    public List<ProdutoEntity> findAll() {
+        logger.info("Bucando todos os produtos.");
+        return repository.findAll();
     }
 
-    public ProdutoEntity findById(String id) {
-        logger.info("Buscando um produto : " + id);
+    public ProdutoEntity findById(Long id) {
+        logger.info("Buscando um produto.");
 
-        ProdutoEntity product = new ProdutoEntity();
-        product.setId(counter.incrementAndGet());
-        product.setName("Iphone");
-        product.setDescricao("Smartphone");
-        product.setPreco(new BigDecimal("7800.00"));
-        return product;
+        return repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Produto não encontrado com esse id: " + id));
     }
 
     public ProdutoEntity create(ProdutoEntity produto) {
-        logger.info("Criando um produto");
-        return produto;
+        logger.info("Inserindo um produto");
+
+        return repository.save(produto);
     }
 
     public ProdutoEntity update(ProdutoEntity produto) {
-        logger.info("Atualizando um produto");
-        return produto;
+        logger.info("Atualizando um produto.");
+
+        //Aqui eu pego o id do produto que estou passando
+        Long produtoId = produto.getId();
+
+        //Verifica se o id que eu passei consta no banco
+        ProdutoEntity produtoIdExists = findById(produtoId);
+
+        //
+        if(produtoId != null && produtoIdExists != null) {
+            return repository.save(produto);
+        } else {
+            throw new ResourceNotFoundException(String.format("Id %d não existe", produtoId));
+        }
     }
 
-    private ProdutoEntity mockProduct(int i) {
-        ProdutoEntity product = new ProdutoEntity();
-        product.setId(counter.incrementAndGet());
-        product.setName("Product " + i);
-        product.setDescricao("Smartphone " + i);
-        product.setPreco(new BigDecimal("0" + i));
-        return product;
-    }
+
 }
