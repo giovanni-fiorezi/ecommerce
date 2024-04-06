@@ -1,4 +1,4 @@
-package br.com.projeto.ecommerce.entity;
+package br.com.projeto.ecommerce.enums;
 
 public enum StatusPagamentoEnum {
 

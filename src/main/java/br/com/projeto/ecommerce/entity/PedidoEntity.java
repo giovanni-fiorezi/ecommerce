@@ -1,5 +1,7 @@
 package br.com.projeto.ecommerce.entity;
 
+import br.com.projeto.ecommerce.enums.FormaPagamentoEnum;
+import br.com.projeto.ecommerce.enums.StatusPedidoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -44,7 +46,6 @@ public class PedidoEntity {
 	@OneToMany(mappedBy = "pedido")
 	private List<ItemPedidoEntity> itensPedido;
 
-	@OneToOne(mappedBy = "pedido")
-	private PagamentoCartaoEntity pagamento;
+	private FormaPagamentoEnum formaPagamento;
 
 }

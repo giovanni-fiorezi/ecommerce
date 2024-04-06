@@ -1,5 +1,6 @@
 package br.com.projeto.ecommerce.entity;
 
+import br.com.projeto.ecommerce.enums.SexoClienteEnum;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

@@ -1,12 +1,8 @@
 package br.com.projeto.ecommerce.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
-import org.apache.tomcat.jni.Local;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.List;
 
 import javax.persistence.*;
 
@@ -17,7 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
-public class ProductEntity {
+public class ProdutoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +22,9 @@ public class ProductEntity {
     private String descricao;
     private BigDecimal preco;
 
-    @ManyToMany
-    @JoinTable(name = "produto_categoria",
-            joinColumns = @JoinColumn(name = "produto_id"),
-            inverseJoinColumns = @JoinColumn(name = "categoria_id"))
-    private List<CategoriaEntity> categorias;
+//    @ManyToMany
+//    @JoinTable(name = "produto_categoria",
+//            joinColumns = @JoinColumn(name = "produto_id"),
+//            inverseJoinColumns = @JoinColumn(name = "categoria_id"))
+//    private List<CategoriaEnum> categorias;
 }

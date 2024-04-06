@@ -27,7 +27,7 @@ public class ItemPedidoEntity {
 
 	@ManyToOne
 	@JoinColumn(name = "produto_id")
-	private ProductEntity produto;
+	private ProdutoEntity produto;
 
 	private BigDecimal precoProduto;
 
