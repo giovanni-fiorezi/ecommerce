@@ -43,14 +43,21 @@ public class ProdutoService {
         Long produtoId = produto.getId();
 
         //Verifica se o id que eu passei consta no banco
-        ProdutoEntity produtoIdExists = findById(produtoId);
+        ProdutoEntity produtoIdExists = repository.findById(produtoId)
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Id %d não existe", produtoId)));
 
-        //
-        if(produtoId != null && produtoIdExists != null) {
-            return repository.save(produto);
-        } else {
-            throw new ResourceNotFoundException(String.format("Id %d não existe", produtoId));
-        }
+        //Salvando a entidade no banco
+        return repository.save(produto);
+    }
+
+    public void delete(Long id) {
+        logger.info("Deletando um produto.");
+
+        //Verifico se existe esse id passado no Banco, caso não exista lança a exceção
+        ProdutoEntity produto = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Id %d não existe", id)));
+
+        repository.delete(produto);
     }
 
 

@@ -15,7 +15,8 @@ public class ProdutoResource {
     @Autowired
     private ProdutoService productService;
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ProdutoEntity> findAll() {
         return productService.findAll();
     }
@@ -23,7 +24,7 @@ public class ProdutoResource {
     @RequestMapping(value = "/{id}",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ProdutoEntity findById(@PathVariable(value="id") String id) {
+    public ProdutoEntity findById(@PathVariable(value="id") Long id) {
         return productService.findById(id);
     }
 
@@ -39,6 +40,11 @@ public class ProdutoResource {
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public ProdutoEntity update(@RequestBody ProdutoEntity produto) {
         return productService.update(produto);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable(value = "id") Long id) {
+        productService.delete(id);
     }
 
 }
