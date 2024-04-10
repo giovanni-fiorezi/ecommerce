@@ -1,9 +1,10 @@
 package br.com.projeto.ecommerce.service;
 
-
 import br.com.projeto.ecommerce.entity.ProdutoEntity;
 import br.com.projeto.ecommerce.exceptions.ResourceNotFoundException;
+import br.com.projeto.ecommerce.mapper.DozerMapper;
 import br.com.projeto.ecommerce.repository.ProdutoRepository;
+import br.com.projeto.ecommerce.vo.v1.ProdutoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,46 +19,51 @@ public class ProdutoService {
     @Autowired
     private ProdutoRepository repository;
 
-    public List<ProdutoEntity> findAll() {
+    public List<ProdutoVO> findAll() {
         logger.info("Bucando todos os produtos.");
-        return repository.findAll();
+        return DozerMapper.parseListObjects(repository.findAll(), ProdutoVO.class);
     }
 
-    public ProdutoEntity findById(Long id) {
+    public ProdutoVO findById(Long id) {
         logger.info("Buscando um produto.");
 
-        return repository.findById(id)
+        ProdutoEntity produtoEntity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Produto não encontrado com esse id: " + id));
+
+        return DozerMapper.parseObject(produtoEntity, ProdutoVO.class);
     }
 
-    public ProdutoEntity create(ProdutoEntity produto) {
+    public ProdutoVO create(ProdutoVO produto) {
         logger.info("Inserindo um produto");
 
-        return repository.save(produto);
+        ProdutoEntity produtoEntity = DozerMapper.parseObject(produto, ProdutoEntity.class);
+        ProdutoEntity produtoSave = repository.save(produtoEntity);
+        return DozerMapper.parseObject(produtoSave, ProdutoVO.class);
     }
 
-    public ProdutoEntity update(ProdutoEntity produto) {
+    public ProdutoVO update(ProdutoVO produto) {
         logger.info("Atualizando um produto.");
 
         //Aqui eu pego o id do produto que estou passando
         Long produtoId = produto.getId();
 
         //Verifica se o id que eu passei consta no banco
-        ProdutoEntity produtoIdExists = repository.findById(produtoId)
+        ProdutoEntity produtoEntity = repository.findById(produtoId)
                 .orElseThrow(() -> new ResourceNotFoundException(String.format("Id %d não existe", produtoId)));
 
         //Salvando a entidade no banco
-        return repository.save(produto);
+        ProdutoEntity produtoSave = repository.save(produtoEntity);
+        return DozerMapper.parseObject(produtoSave, ProdutoVO.class);
     }
 
     public void delete(Long id) {
         logger.info("Deletando um produto.");
 
         //Verifico se existe esse id passado no Banco, caso não exista lança a exceção
-        ProdutoEntity produto = repository.findById(id)
+        ProdutoEntity produtoEntity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException(String.format("Id %d não existe", id)));
 
-        repository.delete(produto);
+        repository.delete(produtoEntity);
     }
 
 

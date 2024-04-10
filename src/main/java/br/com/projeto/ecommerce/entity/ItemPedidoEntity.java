@@ -5,9 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "item_pedido")

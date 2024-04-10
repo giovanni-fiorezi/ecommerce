@@ -1,7 +1,7 @@
 package br.com.projeto.ecommerce.resource;
 
-import br.com.projeto.ecommerce.entity.ProdutoEntity;
 import br.com.projeto.ecommerce.service.ProdutoService;
+import br.com.projeto.ecommerce.vo.v1.ProdutoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -17,25 +17,25 @@ public class ProdutoResource {
     private ProdutoService productService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ProdutoEntity> findAll() {
+    public List<ProdutoVO> findAll() {
         return productService.findAll();
     }
 
     @GetMapping(value = "/{id}",
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ProdutoEntity findById(@PathVariable(value="id") Long id) {
+    public ProdutoVO findById(@PathVariable(value="id") Long id) {
         return productService.findById(id);
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ProdutoEntity create(@RequestBody ProdutoEntity produto) {
+    public ProdutoVO create(@RequestBody ProdutoVO produto) {
         return productService.create(produto);
     }
 
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ProdutoEntity update(@RequestBody ProdutoEntity produto) {
+    public ProdutoVO update(@RequestBody ProdutoVO produto) {
         return productService.update(produto);
     }
 

@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="CRUD de Produtos finalizado e testado.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/repository/ProdutoRepository.java" afterDir="false" />
+    <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="CRUD de Produtos finalizado e testado.Ajuste nas configurações, projeto não estava rodando por problemas no Bean.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/mapper/DozerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/vo/v1/ProdutoVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/ItemPedidoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/ItemPedidoEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/enums/CategoriaEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/enums/CategoriaEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/resource/ProdutoResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/resource/ProdutoResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -217,7 +222,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="" />
-      <changelist id="" name="commits" comment="" />
       <created>1661968901131</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -233,6 +237,8 @@
       <workItem from="1706533104373" duration="108000" />
       <workItem from="1712318984548" duration="1241000" />
       <workItem from="1712409642892" duration="7617000" />
+      <workItem from="1712664794251" duration="1015000" />
+      <workItem from="1712707463080" duration="1811000" />
     </task>
     <task id="LOCAL-00001" summary="Inserindo classes, atributos e fazendo os mapeamentos.">
       <option name="closed" value="true" />
@@ -274,7 +280,15 @@
       <option name="project" value="LOCAL" />
       <updated>1712426601973</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="CRUD de Produtos finalizado e testado.Ajuste nas configurações, projeto não estava rodando por problemas no Bean.">
+      <option name="closed" value="true" />
+      <created>1712620072479</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1712620072479</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,6 +310,7 @@
     <MESSAGE value="Refatoração dos nomes de algumas classes, mudança no escopo de entidades para enums e criação de uma nova pasta de enums para segregar as implementações." />
     <MESSAGE value="..." />
     <MESSAGE value="CRUD de Produtos finalizado e testado." />
-    <option name="LAST_COMMIT_MESSAGE" value="CRUD de Produtos finalizado e testado." />
+    <MESSAGE value="CRUD de Produtos finalizado e testado.Ajuste nas configurações, projeto não estava rodando por problemas no Bean." />
+    <option name="LAST_COMMIT_MESSAGE" value="CRUD de Produtos finalizado e testado.Ajuste nas configurações, projeto não estava rodando por problemas no Bean." />
   </component>
 </project>
