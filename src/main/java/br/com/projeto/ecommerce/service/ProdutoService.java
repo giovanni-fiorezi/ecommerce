@@ -2,7 +2,7 @@ package br.com.projeto.ecommerce.service;
 
 import br.com.projeto.ecommerce.entity.ProdutoEntity;
 import br.com.projeto.ecommerce.exceptions.ResourceNotFoundException;
-import br.com.projeto.ecommerce.mapper.DozerMapper;
+import br.com.projeto.ecommerce.mapper.ModelMapper;
 import br.com.projeto.ecommerce.repository.ProdutoRepository;
 import br.com.projeto.ecommerce.vo.v1.ProdutoVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class ProdutoService {
 
     public List<ProdutoVO> findAll() {
         logger.info("Bucando todos os produtos.");
-        return DozerMapper.parseListObjects(repository.findAll(), ProdutoVO.class);
+        return ModelMapper.parseListObjects(repository.findAll(), ProdutoVO.class);
     }
 
     public ProdutoVO findById(Long id) {
@@ -30,15 +30,15 @@ public class ProdutoService {
         ProdutoEntity produtoEntity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Produto não encontrado com esse id: " + id));
 
-        return DozerMapper.parseObject(produtoEntity, ProdutoVO.class);
+        return ModelMapper.parseObject(produtoEntity, ProdutoVO.class);
     }
 
     public ProdutoVO create(ProdutoVO produto) {
         logger.info("Inserindo um produto");
 
-        ProdutoEntity produtoEntity = DozerMapper.parseObject(produto, ProdutoEntity.class);
+        ProdutoEntity produtoEntity = ModelMapper.parseObject(produto, ProdutoEntity.class);
         ProdutoEntity produtoSave = repository.save(produtoEntity);
-        return DozerMapper.parseObject(produtoSave, ProdutoVO.class);
+        return ModelMapper.parseObject(produtoSave, ProdutoVO.class);
     }
 
     public ProdutoVO update(ProdutoVO produto) {
@@ -53,7 +53,7 @@ public class ProdutoService {
 
         //Salvando a entidade no banco
         ProdutoEntity produtoSave = repository.save(produtoEntity);
-        return DozerMapper.parseObject(produtoSave, ProdutoVO.class);
+        return ModelMapper.parseObject(produtoSave, ProdutoVO.class);
     }
 
     public void delete(Long id) {
