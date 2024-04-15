@@ -4,7 +4,8 @@ package br.com.projeto.ecommerce.enums;
 public enum CategoriaEnum {
 
     ELETRONICO("Eletrônico"),
-    ROUPAS("Roupas")
+    ROUPAS("Roupas"),
+    RELOGIO("Relógio"),
     ;
 
     private String descricao;

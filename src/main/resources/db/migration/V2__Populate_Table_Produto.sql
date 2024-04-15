@@ -1,0 +1,6 @@
+--
+-- INSERT INTO public.produto (id, categoria, descricao, name, preco, quantidade)
+-- VALUES
+--     (1, 'ELETRONICO', 'Smartphone modelo X', 'Smartphone X', 1500.00, 50),
+--     (2, 'ROUPAS', 'Camiseta estampada', 'Camiseta Estampada', 25.99, 100),
+--     (3, 'RELOGIO', 'Fones de ouvido sem fio', 'Fones de Ouvido Bluetooth', 49.90, 30);

@@ -26,6 +26,10 @@ public class ProdutoEntity implements Serializable {
     private String name;
     private String descricao;
     private BigDecimal preco;
+
+    @Enumerated(EnumType.STRING)
     private CategoriaEnum categoria;
+
+    private Integer quantidade;
 
 }
