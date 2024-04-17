@@ -1,5 +1,6 @@
 package br.com.projeto.ecommerce.resource;
 
+import br.com.projeto.ecommerce.enums.CategoriaEnum;
 import br.com.projeto.ecommerce.service.ProdutoService;
 import br.com.projeto.ecommerce.vo.v1.ProdutoVO;
 import br.com.projeto.ecommerce.vo.v2.ProdutoVOV2;
@@ -20,6 +21,16 @@ public class ProdutoResource {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ProdutoVO> findAll() {
         return productService.findAll();
+    }
+
+//    @GetMapping(value = "/find-all-eletronicos", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public List<ProdutoVO> findAllEletronicos(){
+//        return productService.findAllEletronicos();
+//    }
+
+    @GetMapping(value = "/find-by-categoria", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ProdutoVO> findByCategoria(@RequestParam(value = "categoria") CategoriaEnum categoria){
+        return productService.findByCategoria(categoria);
     }
 
     @GetMapping(value = "/{id}",

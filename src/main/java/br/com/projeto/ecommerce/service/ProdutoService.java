@@ -1,6 +1,7 @@
 package br.com.projeto.ecommerce.service;
 
 import br.com.projeto.ecommerce.entity.ProdutoEntity;
+import br.com.projeto.ecommerce.enums.CategoriaEnum;
 import br.com.projeto.ecommerce.exceptions.ResourceNotFoundException;
 import br.com.projeto.ecommerce.mapper.ModelMapper;
 import br.com.projeto.ecommerce.mapper.custom.ProdutoMapper;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @Service
 public class ProdutoService {
@@ -27,6 +29,26 @@ public class ProdutoService {
     public List<ProdutoVO> findAll() {
         logger.info("Bucando todos os produtos.");
         return ModelMapper.parseListObjects(repository.findAll(), ProdutoVO.class);
+    }
+
+    public List<ProdutoVO> findAllEletronicos() {
+        logger.info("Buscando todos os Eletrônicos.");
+
+        List<ProdutoEntity> produtosEletronicos = repository.findAll().stream()
+                .filter(produto -> produto.getCategoria().equals(CategoriaEnum.ELETRONICO))
+                .collect(Collectors.toList());
+
+        return ModelMapper.parseListObjects(produtosEletronicos, ProdutoVO.class);
+    }
+
+    public List<ProdutoVO> findByCategoria(CategoriaEnum categoria) {
+        logger.info("Buscando todos os: " + categoria.getDescricao());
+
+        List<ProdutoEntity> produtosList = repository.findAll().stream()
+                .filter(categoriaProduto -> categoriaProduto.getCategoria().equals(categoria))
+                .collect(Collectors.toList());
+
+        return ModelMapper.parseListObjects(produtosList, ProdutoVO.class);
     }
 
     public ProdutoVO findById(Long id) {
