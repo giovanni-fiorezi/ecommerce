@@ -31,16 +31,7 @@ public class ProdutoService {
         return ModelMapper.parseListObjects(repository.findAll(), ProdutoVO.class);
     }
 
-    public List<ProdutoVO> findAllEletronicos() {
-        logger.info("Buscando todos os Eletrônicos.");
-
-        List<ProdutoEntity> produtosEletronicos = repository.findAll().stream()
-                .filter(produto -> produto.getCategoria().equals(CategoriaEnum.ELETRONICO))
-                .collect(Collectors.toList());
-
-        return ModelMapper.parseListObjects(produtosEletronicos, ProdutoVO.class);
-    }
-
+    /* Método para buscar uma lista de produtos com base na categoria, passada via parametro */
     public List<ProdutoVO> findByCategoria(CategoriaEnum categoria) {
         logger.info("Buscando todos os: " + categoria.getDescricao());
 
