@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="Adicionei um método que busca os produtos, de acordo com a categoria que for passada no parametro. &#10;Tirei o flyway por hora, pois estava dando muitos problemas de config.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java" afterDir="false" />
-    </list>
+    <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="Exclusão de um método e de alguns blocos de código comentados." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -243,7 +240,7 @@
       <workItem from="1713184245662" duration="596000" />
       <workItem from="1713210122543" duration="519000" />
       <workItem from="1713211671998" duration="2703000" />
-      <workItem from="1713310739806" duration="1863000" />
+      <workItem from="1713310739806" duration="2457000" />
     </task>
     <task id="LOCAL-00001" summary="Inserindo classes, atributos e fazendo os mapeamentos.">
       <option name="closed" value="true" />
@@ -325,7 +322,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713312110594</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Exclusão de um método e de alguns blocos de código comentados.">
+      <option name="closed" value="true" />
+      <created>1713313192952</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1713313192952</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +357,8 @@
     <MESSAGE value="Alteração de DozerMapper para ModelMapper." />
     <MESSAGE value="Inserção do VO e do flyway." />
     <MESSAGE value="Adicionei um método que busca os produtos, de acordo com a categoria que for passada no parametro. &#10;Tirei o flyway por hora, pois estava dando muitos problemas de config." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adicionei um método que busca os produtos, de acordo com a categoria que for passada no parametro. &#10;Tirei o flyway por hora, pois estava dando muitos problemas de config." />
+    <MESSAGE value="Exclusão de um método e de alguns blocos de código comentados." />
+    <option name="LAST_COMMIT_MESSAGE" value="Exclusão de um método e de alguns blocos de código comentados." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
