@@ -23,11 +23,6 @@ public class ProdutoResource {
         return productService.findAll();
     }
 
-//    @GetMapping(value = "/find-all-eletronicos", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public List<ProdutoVO> findAllEletronicos(){
-//        return productService.findAllEletronicos();
-//    }
-
     @GetMapping(value = "/find-by-categoria", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<ProdutoVO> findByCategoria(@RequestParam(value = "categoria") CategoriaEnum categoria){
         return productService.findByCategoria(categoria);
