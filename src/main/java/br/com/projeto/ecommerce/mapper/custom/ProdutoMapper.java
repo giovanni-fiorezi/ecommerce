@@ -1,7 +1,8 @@
 package br.com.projeto.ecommerce.mapper.custom;
 
 import br.com.projeto.ecommerce.entity.ProdutoEntity;
-import br.com.projeto.ecommerce.vo.v2.ProdutoVOV2;
+//import br.com.projeto.ecommerce.vo.v2.ProdutoVOV2;
+import br.com.projeto.ecommerce.vo.v1.ProdutoVO;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,25 +12,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProdutoMapper {
 
-    public ProdutoVOV2 convertEntityToVo(ProdutoEntity entity) {
-        ProdutoVOV2 vov2 = new ProdutoVOV2();
-        vov2.setId(entity.getId());
+    public ProdutoVO convertEntityToVo(ProdutoEntity entity) {
+        ProdutoVO vov2 = new ProdutoVO();
+        vov2.setKey(entity.getId());
         vov2.setName(entity.getName());
         vov2.setCategoria(entity.getCategoria());
         vov2.setPreco(entity.getPreco());
         vov2.setDescricao(entity.getDescricao());
-        vov2.setQuantidade(entity.getQuantidade());
         return vov2;
     }
 
-    public ProdutoEntity convertVoToEntity(ProdutoVOV2 vov2) {
+    public ProdutoEntity convertVoToEntity(ProdutoVO vov2) {
         ProdutoEntity entity = new ProdutoEntity();
-        entity.setId(vov2.getId());
+        entity.setId(vov2.getKey());
         entity.setName(vov2.getName());
         entity.setCategoria(vov2.getCategoria());
         entity.setPreco(vov2.getPreco());
         entity.setDescricao(vov2.getDescricao());
-        entity.setQuantidade(vov2.getQuantidade());
         return entity;
     }
 

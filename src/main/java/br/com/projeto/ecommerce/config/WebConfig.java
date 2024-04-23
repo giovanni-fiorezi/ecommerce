@@ -9,6 +9,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.List;
 
+/* Classe responsável para fazer configuração das MediaType */
+
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 

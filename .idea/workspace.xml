@@ -5,12 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="Inserindo content negotiation.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/serialization/converter/YamlJackson2HttpMesageConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/util/MediaType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/exceptions/RequiredObjectIsNullException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/projeto/ecommerce/unittests/mockito/mapper/MockProduto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/projeto/ecommerce/unittests/mockito/service/ProdutoServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/exceptions/handler/CustomizedResponseEntityExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/exceptions/handler/CustomizedResponseEntityExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/mapper/ModelMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/mapper/ModelMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/mapper/custom/ProdutoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/mapper/custom/ProdutoMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/resource/ProdutoResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/resource/ProdutoResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/serialization/converter/YamlJackson2HttpMesageConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/serialization/converter/YamlJackson2HttpMesageConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/util/MediaType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/util/MediaType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/vo/v1/ProdutoVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/vo/v1/ProdutoVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/vo/v2/ProdutoVOV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/vo/v2/ProdutoVOV2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +31,7 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -96,6 +106,9 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;ToolWindowJPA Structure.ShowToolbar&quot;: &quot;false&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Desenvolvimento_Projetos/ecommerce/src/main/java/br/com/projeto/ecommerce/unittests/mockito/service&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Desenvolvimento_Projetos/algaworks-ecommerce&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -122,14 +135,20 @@
       <recent name="C:\Desenvolvimento_Projetos\ecommerce\src\main\resources\META-INF" />
       <recent name="C:\Desenvolvimento_Projetos\ecommerce\src\main\resources" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="br.com.projeto.ecommerce.service" />
+    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn clean" />
       <command value="mvn install" />
+      <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunManager" selected="JUnit.ProdutoServiceTest.findById">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.projeto.ecommerce.Application" />
       <module name="br.com.projeto" />
@@ -152,6 +171,22 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProdutoServiceTest.findById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="br.com.projeto" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="br.com.projeto.ecommerce.unittests.mockito.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="br.com.projeto.ecommerce.unittests.mockito.service" />
+      <option name="MAIN_CLASS_NAME" value="br.com.projeto.ecommerce.unittests.mockito.service.ProdutoServiceTest" />
+      <option name="METHOD_NAME" value="findById" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -209,11 +244,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ProdutoServiceTest.findById" />
         <item itemvalue="JUnit.RelacionamentoManyToOneTest.verificarRelacionamento" />
         <item itemvalue="JUnit.RelacionamentoManyToOneTest" />
         <item itemvalue="Application.IniciarUnidadeDePersistencia" />
         <item itemvalue="Application.Application" />
-        <item itemvalue="JUnit.RelacionamentoManyToOneTest.verificarRelacionamento" />
       </list>
     </recent_temporary>
   </component>
@@ -248,7 +283,12 @@
       <workItem from="1713211671998" duration="2703000" />
       <workItem from="1713310739806" duration="2457000" />
       <workItem from="1713355591337" duration="1826000" />
-      <workItem from="1713394808446" duration="2643000" />
+      <workItem from="1713394808446" duration="6776000" />
+      <workItem from="1713442021427" duration="1288000" />
+      <workItem from="1713528327255" duration="598000" />
+      <workItem from="1713630197652" duration="4208000" />
+      <workItem from="1713787351878" duration="1262000" />
+      <workItem from="1713827963705" duration="2819000" />
     </task>
     <task id="LOCAL-00001" summary="Inserindo classes, atributos e fazendo os mapeamentos.">
       <option name="closed" value="true" />
@@ -346,7 +386,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713397253761</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Inserindo content negotiation.">
+      <option name="closed" value="true" />
+      <created>1713397464845</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1713397464845</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

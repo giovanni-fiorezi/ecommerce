@@ -5,6 +5,10 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
 
+
+/* Classe para fazer configuração do application yaml */
+
+
 public class YamlJackson2HttpMesageConverter extends AbstractJackson2HttpMessageConverter {
 
     public YamlJackson2HttpMesageConverter() {

@@ -2,14 +2,18 @@ package br.com.projeto.ecommerce.service;
 
 import br.com.projeto.ecommerce.entity.ProdutoEntity;
 import br.com.projeto.ecommerce.enums.CategoriaEnum;
+import br.com.projeto.ecommerce.exceptions.RequiredObjectIsNullException;
 import br.com.projeto.ecommerce.exceptions.ResourceNotFoundException;
 import br.com.projeto.ecommerce.mapper.ModelMapper;
 import br.com.projeto.ecommerce.mapper.custom.ProdutoMapper;
 import br.com.projeto.ecommerce.repository.ProdutoRepository;
+import br.com.projeto.ecommerce.resource.ProdutoResource;
 import br.com.projeto.ecommerce.vo.v1.ProdutoVO;
-import br.com.projeto.ecommerce.vo.v2.ProdutoVOV2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -28,7 +32,12 @@ public class ProdutoService {
 
     public List<ProdutoVO> findAll() {
         logger.info("Bucando todos os produtos.");
-        return ModelMapper.parseListObjects(repository.findAll(), ProdutoVO.class);
+
+        List<ProdutoVO> produtosVosList = ModelMapper.parseListObjects(repository.findAll(), ProdutoVO.class);
+        produtosVosList
+                .stream()
+                .forEach(produtoVO -> produtoVO.add(linkTo(methodOn(ProdutoResource.class).findById(produtoVO.getKey())).withSelfRel()));
+        return produtosVosList;
     }
 
     /* Método para buscar uma lista de produtos com base na categoria, passada via parametro */
@@ -44,40 +53,48 @@ public class ProdutoService {
 
     public ProdutoVO findById(Long id) {
         logger.info("Buscando um produto.");
-
         ProdutoEntity produtoEntity = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Produto não encontrado com esse id: " + id));
-
-        return ModelMapper.parseObject(produtoEntity, ProdutoVO.class);
+        ProdutoVO vo = ModelMapper.parseObject(produtoEntity, ProdutoVO.class);
+        vo.add(linkTo(methodOn(ProdutoResource.class).findById(id)).withSelfRel());
+        return vo;
     }
 
     public ProdutoVO create(ProdutoVO produto) {
+
+        if(produto == null) throw new RequiredObjectIsNullException();
+
         logger.info("Inserindo um produto");
 
         ProdutoEntity produtoEntity = ModelMapper.parseObject(produto, ProdutoEntity.class);
         ProdutoEntity produtoSave = repository.save(produtoEntity);
-        return ModelMapper.parseObject(produtoSave, ProdutoVO.class);
+        ProdutoVO vo = ModelMapper.parseObject(produtoSave, ProdutoVO.class);
+        vo.add(linkTo(methodOn(ProdutoResource.class).findById(vo.getKey())).withSelfRel());
+        return vo;
     }
 
     /* Método criado para aprender sobre versionamento */
-    public ProdutoVOV2 createV2(ProdutoVOV2 produto) {
-        logger.info("Inserindo um produto");
-
-        // Convertendo um vo em uma entidade
-        ProdutoEntity produtoEntity = produtoMapper.convertVoToEntity(produto);
-
-        // Salvando a entidade no banco
-        ProdutoEntity produtoSave = repository.save(produtoEntity);
-
-        // Convertendo a entidade em vo para retornar no método
-        return produtoMapper.convertEntityToVo(produtoSave);
-    }
+//    public ProdutoVOV2 createV2(ProdutoVOV2 produto) {
+//        logger.info("Inserindo um produto");
+//
+//        // Convertendo um vo em uma entidade
+//        ProdutoEntity produtoEntity = produtoMapper.convertVoToEntity(produto);
+//
+//        // Salvando a entidade no banco
+//        ProdutoEntity produtoSave = repository.save(produtoEntity);
+//
+//        // Convertendo a entidade em vo para retornar no método
+//        return produtoMapper.convertEntityToVo(produtoSave);
+//    }
 
     public ProdutoVO update(ProdutoVO produto) {
+
+        if(produto == null) throw new RequiredObjectIsNullException();
+
         logger.info("Atualizando um produto.");
 
         //Aqui eu pego o id do produto que estou passando
-        Long produtoId = produto.getId();
+        Long produtoId = produto.getKey();
 
         //Verifica se o id que eu passei consta no banco
         ProdutoEntity produtoEntity = repository.findById(produtoId)
@@ -85,7 +102,9 @@ public class ProdutoService {
 
         //Salvando a entidade no banco
         ProdutoEntity produtoSave = repository.save(produtoEntity);
-        return ModelMapper.parseObject(produtoSave, ProdutoVO.class);
+        ProdutoVO vo = ModelMapper.parseObject(produtoSave, ProdutoVO.class);
+        vo.add(linkTo(methodOn(ProdutoResource.class).findById(vo.getKey())).withSelfRel());
+        return vo;
     }
 
     public void delete(Long id) {
