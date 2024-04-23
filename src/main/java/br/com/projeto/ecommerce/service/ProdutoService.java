@@ -73,20 +73,6 @@ public class ProdutoService {
         return vo;
     }
 
-    /* Método criado para aprender sobre versionamento */
-//    public ProdutoVOV2 createV2(ProdutoVOV2 produto) {
-//        logger.info("Inserindo um produto");
-//
-//        // Convertendo um vo em uma entidade
-//        ProdutoEntity produtoEntity = produtoMapper.convertVoToEntity(produto);
-//
-//        // Salvando a entidade no banco
-//        ProdutoEntity produtoSave = repository.save(produtoEntity);
-//
-//        // Convertendo a entidade em vo para retornar no método
-//        return produtoMapper.convertEntityToVo(produtoSave);
-//    }
-
     public ProdutoVO update(ProdutoVO produto) {
 
         if(produto == null) throw new RequiredObjectIsNullException();

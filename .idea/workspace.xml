@@ -4,22 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="Inserindo content negotiation.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/exceptions/RequiredObjectIsNullException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/projeto/ecommerce/unittests/mockito/mapper/MockProduto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/projeto/ecommerce/unittests/mockito/service/ProdutoServiceTest.java" afterDir="false" />
+    <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="Iniciando Testes Unitátios com Uso de Mockito. &#10;&#10;Inserindo Uma exception para bad requests.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/config/OpenApiConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/config/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/exceptions/handler/CustomizedResponseEntityExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/exceptions/handler/CustomizedResponseEntityExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/mapper/ModelMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/mapper/ModelMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/mapper/custom/ProdutoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/mapper/custom/ProdutoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/resource/ProdutoResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/resource/ProdutoResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/serialization/converter/YamlJackson2HttpMesageConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/serialization/converter/YamlJackson2HttpMesageConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/util/MediaType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/util/MediaType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/vo/v1/ProdutoVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/vo/v1/ProdutoVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/vo/v2/ProdutoVOV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/vo/v2/ProdutoVOV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/EnderecoEntregaPedido.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/EstoqueEntity$EstoqueEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/EstoqueEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/NotaFiscalEntity$NotaFiscalEntityBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/entity/NotaFiscalEntity.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/exceptions/ExceptionResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/exceptions/handler/CustomizedResponseEntityExceptionHandler.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +145,7 @@
       <command value="mvn clean" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ProdutoServiceTest.findById">
+  <component name="RunManager" selected="Spring Boot.Application">
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="br.com.projeto.ecommerce.Application" />
       <module name="br.com.projeto" />
@@ -288,7 +285,8 @@
       <workItem from="1713528327255" duration="598000" />
       <workItem from="1713630197652" duration="4208000" />
       <workItem from="1713787351878" duration="1262000" />
-      <workItem from="1713827963705" duration="2819000" />
+      <workItem from="1713827963705" duration="3434000" />
+      <workItem from="1713874263727" duration="4962000" />
     </task>
     <task id="LOCAL-00001" summary="Inserindo classes, atributos e fazendo os mapeamentos.">
       <option name="closed" value="true" />
@@ -394,7 +392,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713397464845</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Iniciando Testes Unitátios com Uso de Mockito. &#10;&#10;Inserindo Uma exception para bad requests.">
+      <option name="closed" value="true" />
+      <created>1713830888553</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1713830888553</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,7 +429,8 @@
     <MESSAGE value="Adicionei um método que busca os produtos, de acordo com a categoria que for passada no parametro. &#10;Tirei o flyway por hora, pois estava dando muitos problemas de config." />
     <MESSAGE value="Exclusão de um método e de alguns blocos de código comentados." />
     <MESSAGE value="Inserindo content negotiation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Inserindo content negotiation." />
+    <MESSAGE value="Iniciando Testes Unitátios com Uso de Mockito. &#10;&#10;Inserindo Uma exception para bad requests." />
+    <option name="LAST_COMMIT_MESSAGE" value="Iniciando Testes Unitátios com Uso de Mockito. &#10;&#10;Inserindo Uma exception para bad requests." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
