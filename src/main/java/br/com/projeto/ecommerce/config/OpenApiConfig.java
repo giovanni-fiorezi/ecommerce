@@ -13,9 +13,14 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Api Ecommerce com Java e Novos Conceitos")
+                        .title("Api Ecommerce com Java")
                         .version("v1")
-                        .description("Projeto desenvolvido para aprimorar meus conhecimentos em Java, lógica, banco de dados e novas tecnologias.")
+                        .description("Projeto desenvolvido para aprimorar meus conhecimentos em:" +
+                                " - Java; " +
+                                " - Lógica de Programação; " +
+                                " - Banco de dados; " +
+                                " - Docker; " +
+                                " - Cloud.")
                         .termsOfService("")
                         .license(new License().name("Apache 2.0")
                                 .url("")));
