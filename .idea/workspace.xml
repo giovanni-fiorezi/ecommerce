@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="Inserindo e configurando Swagger.">
+    <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="Documentando os endpoints de ProdutoResource.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/projeto/ecommerce/integrationtests/testcontainers/AbstractIntegrationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/br/com/projeto/ecommerce/unittests/config/TestConfigs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/config/OpenApiConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/config/OpenApiConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/config/WebConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/resource/ProdutoResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/resource/ProdutoResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -278,7 +283,10 @@
       <workItem from="1713630197652" duration="4208000" />
       <workItem from="1713787351878" duration="1262000" />
       <workItem from="1713827963705" duration="3434000" />
-      <workItem from="1713874263727" duration="9374000" />
+      <workItem from="1713874263727" duration="10808000" />
+      <workItem from="1713983396727" duration="2512000" />
+      <workItem from="1714046582736" duration="597000" />
+      <workItem from="1714575074062" duration="7162000" />
     </task>
     <task id="LOCAL-00001" summary="Inserindo classes, atributos e fazendo os mapeamentos.">
       <option name="closed" value="true" />
@@ -408,7 +416,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713900801385</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Documentando os endpoints de ProdutoResource.">
+      <option name="closed" value="true" />
+      <created>1713906438285</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1713906438285</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,7 +455,8 @@
     <MESSAGE value="Inserindo content negotiation." />
     <MESSAGE value="Iniciando Testes Unitátios com Uso de Mockito. &#10;&#10;Inserindo Uma exception para bad requests." />
     <MESSAGE value="Inserindo e configurando Swagger." />
-    <option name="LAST_COMMIT_MESSAGE" value="Inserindo e configurando Swagger." />
+    <MESSAGE value="Documentando os endpoints de ProdutoResource." />
+    <option name="LAST_COMMIT_MESSAGE" value="Documentando os endpoints de ProdutoResource." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

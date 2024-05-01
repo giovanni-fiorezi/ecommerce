@@ -37,6 +37,7 @@ public class ProdutoService {
         produtosVosList
                 .stream()
                 .forEach(produtoVO -> produtoVO.add(linkTo(methodOn(ProdutoResource.class).findById(produtoVO.getKey())).withSelfRel()));
+
         return produtosVosList;
     }
 

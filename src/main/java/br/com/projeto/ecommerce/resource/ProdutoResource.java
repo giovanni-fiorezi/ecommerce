@@ -55,6 +55,7 @@ public class ProdutoResource {
         return productService.findByCategoria(categoria);
     }
 
+//    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(value = "/{id}",
             produces = { MediaType.MEDIA_TYPE_APPLICATION_JSON, MediaType.MEDIA_TYPE_APPLICATION_YML, MediaType.MEDIA_TYPE_APPLICATION_XML })
     @Operation(summary = "Buscando Produto", description = "Buscando Produto",
@@ -73,6 +74,7 @@ public class ProdutoResource {
         return productService.findById(id);
     }
 
+//    @CrossOrigin(origins = {"http://localhost:8080", "https://ecommerce.com.br"})
     @PostMapping(produces = {
             MediaType.MEDIA_TYPE_APPLICATION_JSON,
             MediaType.MEDIA_TYPE_APPLICATION_YML,
