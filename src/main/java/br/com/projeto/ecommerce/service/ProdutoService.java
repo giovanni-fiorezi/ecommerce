@@ -5,7 +5,6 @@ import br.com.projeto.ecommerce.enums.CategoriaEnum;
 import br.com.projeto.ecommerce.exceptions.RequiredObjectIsNullException;
 import br.com.projeto.ecommerce.exceptions.ResourceNotFoundException;
 import br.com.projeto.ecommerce.mapper.ModelMapper;
-import br.com.projeto.ecommerce.mapper.custom.ProdutoMapper;
 import br.com.projeto.ecommerce.repository.ProdutoRepository;
 import br.com.projeto.ecommerce.resource.ProdutoResource;
 import br.com.projeto.ecommerce.vo.v1.ProdutoVO;
@@ -26,9 +25,6 @@ public class ProdutoService {
 
     @Autowired
     private ProdutoRepository repository;
-
-    @Autowired
-    private ProdutoMapper produtoMapper;
 
     public List<ProdutoVO> findAll() {
         logger.info("Bucando todos os produtos.");
