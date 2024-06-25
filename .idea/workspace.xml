@@ -4,24 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="Aprendendo, entendendo e implementando Cros na api.">
-      <change afterPath="$PROJECT_DIR$/.idea/arquivos/insert-table.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/Permission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/exceptions/InvalidJwtAuthenticationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/securityJwt/JwtTokenProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/vo/v1/security/AccountCredentialsVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/vo/v1/security/TokenVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="1e659037-05be-4ede-8bb1-4a89335f5f00" name="Changes" comment="Comentei as implementações relacionadas a Autenticação, pois estava falhando.&#10;Implementei o upload de um xlsx de Produtos.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/util/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/exceptions/InvalidJwtAuthenticationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/exceptions/InvalidJwtAuthenticationException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/exceptions/handler/CustomizedResponseEntityExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/exceptions/handler/CustomizedResponseEntityExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/mapper/custom/ProdutoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/mapper/custom/ProdutoMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/resource/ProdutoResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/resource/ProdutoResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/securityJwt/JwtTokenProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/securityJwt/JwtTokenProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/vo/v1/ProdutoVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/vo/v1/ProdutoVO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/projeto/ecommerce/unittests/config/TestConfigs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/projeto/ecommerce/unittests/config/TestConfigs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/projeto/ecommerce/unittests/mockito/mapper/MockProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/projeto/ecommerce/unittests/mockito/mapper/MockProduto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/br/com/projeto/ecommerce/unittests/mockito/service/ProdutoServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/br/com/projeto/ecommerce/unittests/mockito/service/ProdutoServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/exceptions/handler/CustomizedResponseEntityExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/br/com/projeto/ecommerce/exceptions/handler/CustomizedResponseEntityExceptionHandler.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +134,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Desenvolvimento_Projetos\ecommerce\.idea\arquivos" />
       <recent name="C:\Desenvolvimento_Projetos\ecommerce\src\main\resources\META-INF\banco-de-dados" />
       <recent name="C:\Desenvolvimento_Projetos\ecommerce\src\main\resources\META-INF" />
       <recent name="C:\Desenvolvimento_Projetos\ecommerce\src\main\resources" />
@@ -151,12 +153,12 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.Application">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="br.com.projeto.ecommerce.Application" />
+    <configuration name="IniciarUnidadeDePersistencia" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.com.projeto.ecommerce.util.IniciarUnidadeDePersistencia" />
       <module name="br.com.projeto" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.com.projeto.ecommerce.*" />
+          <option name="PATTERN" value="br.com.projeto.ecommerce.util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -164,8 +166,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IniciarUnidadeDePersistencia" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="br.com.projeto.ecommerce.util.IniciarUnidadeDePersistencia" />
+    <configuration name="Utils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="br.com.projeto.ecommerce.util.Utils" />
       <module name="br.com.projeto" />
       <extension name="coverage">
         <pattern>
@@ -246,11 +248,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Utils" />
         <item itemvalue="JUnit.ProdutoServiceTest.findById" />
         <item itemvalue="JUnit.RelacionamentoManyToOneTest.verificarRelacionamento" />
         <item itemvalue="JUnit.RelacionamentoManyToOneTest" />
         <item itemvalue="Application.IniciarUnidadeDePersistencia" />
-        <item itemvalue="Application.Application" />
       </list>
     </recent_temporary>
   </component>
@@ -297,7 +299,14 @@
       <workItem from="1714575074062" duration="9993000" />
       <workItem from="1717081105663" duration="10597000" />
       <workItem from="1717254846855" duration="2621000" />
-      <workItem from="1717461667267" duration="4735000" />
+      <workItem from="1717461667267" duration="5356000" />
+      <workItem from="1717502627907" duration="1196000" />
+      <workItem from="1717684570711" duration="949000" />
+      <workItem from="1717694648488" duration="598000" />
+      <workItem from="1717762425585" duration="598000" />
+      <workItem from="1719270862735" duration="5590000" />
+      <workItem from="1719317348200" duration="93000" />
+      <workItem from="1719355376549" duration="2326000" />
     </task>
     <task id="LOCAL-00001" summary="Inserindo classes, atributos e fazendo os mapeamentos.">
       <option name="closed" value="true" />
@@ -443,7 +452,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714586166180</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Aprendendo, entendendo e implementando Cros na api.">
+      <option name="closed" value="true" />
+      <created>1717466534831</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1717466534831</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -476,7 +493,8 @@
     <MESSAGE value="Inserindo e configurando Swagger." />
     <MESSAGE value="Documentando os endpoints de ProdutoResource." />
     <MESSAGE value="Aprendendo, entendendo e implementando Cros na api." />
-    <option name="LAST_COMMIT_MESSAGE" value="Aprendendo, entendendo e implementando Cros na api." />
+    <MESSAGE value="Comentei as implementações relacionadas a Autenticação, pois estava falhando.&#10;Implementei o upload de um xlsx de Produtos." />
+    <option name="LAST_COMMIT_MESSAGE" value="Comentei as implementações relacionadas a Autenticação, pois estava falhando.&#10;Implementei o upload de um xlsx de Produtos." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -486,6 +504,36 @@
           <line>48</line>
           <properties field="url" class="org.flywaydb.core.api.configuration.ClassicConfiguration" />
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/util/Utils.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java</url>
+          <line>139</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java</url>
+          <line>117</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/resource/ProdutoResource.java</url>
+          <line>106</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/com/projeto/ecommerce/service/ProdutoService.java</url>
+          <line>120</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

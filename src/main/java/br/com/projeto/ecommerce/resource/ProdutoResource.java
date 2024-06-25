@@ -13,7 +13,10 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -97,6 +100,12 @@ public class ProdutoResource {
     public ResponseEntity<?> delete(@PathVariable(value = "id") Long id) {
         productService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/post-products-file")
+    public ResponseEntity<List<ProdutoVO>> lerPlanilhaXlsx(@RequestParam("file") MultipartFile multipartFile) throws IOException {
+        List<ProdutoVO> produtos = productService.lerPlanilhaXlsx(multipartFile);
+        return ResponseEntity.ok(produtos);
     }
 
 }

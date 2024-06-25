@@ -8,12 +8,26 @@ import br.com.projeto.ecommerce.mapper.ModelMapper;
 import br.com.projeto.ecommerce.repository.ProdutoRepository;
 import br.com.projeto.ecommerce.resource.ProdutoResource;
 import br.com.projeto.ecommerce.vo.v1.ProdutoVO;
+import org.apache.commons.collections4.IteratorUtils;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -98,6 +112,40 @@ public class ProdutoService {
                 .orElseThrow(() -> new ResourceNotFoundException(String.format("Id %d não existe", id)));
 
         repository.delete(produtoEntity);
+    }
+
+    public List<ProdutoVO> lerPlanilhaXlsx(MultipartFile file) throws IOException {
+        List<ProdutoVO> produtos = new ArrayList<>();
+
+        try (Workbook workbook = new XSSFWorkbook(file.getInputStream())) {
+            Sheet sheet = workbook.getSheetAt(0);
+            List<Row> rows = (List<Row>) toList(sheet.iterator());
+
+            rows.remove(0);
+
+            rows.forEach(row -> {
+                List<Cell> cells = (List<Cell>) toList(row.cellIterator());
+
+                ProdutoVO vo = ProdutoVO.builder()
+                        .name(cells.get(0).getStringCellValue() != null ? cells.get(0).getStringCellValue() : "")
+                        .descricao(cells.get(1).getStringCellValue() != null ? cells.get(1).getStringCellValue() : "")
+                        .preco(cells.get(2).getCellType() == null ? BigDecimal.valueOf(cells.get(2).getNumericCellValue()) : BigDecimal.ZERO)
+                        .categoria(CategoriaEnum.valueOf(cells.get(3).getStringCellValue() != null ? cells.get(3).getStringCellValue() : ""))
+                        .build();
+
+                produtos.add(vo);
+            });
+
+            for (ProdutoVO produto : produtos) {
+                ProdutoEntity produtoEntity = ModelMapper.parseObject(produto, ProdutoEntity.class);
+                repository.save(produtoEntity);
+            }
+        }
+        return produtos;
+    }
+
+    private List<?> toList(Iterator<?> iterator) {
+        return IteratorUtils.toList(iterator);
     }
 
 }
